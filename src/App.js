@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
+import Navigation from './navigation';
 import "./App.css";
 import Form from "./Form";
+
 
 class App extends Component {
   state = {
@@ -20,6 +22,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        {/* <Navigation /> */}
         <Form onChange={fields => this.onChange(fields)} />
         <p>
           {JSON.stringify(this.state.fields, null, 2)}

@@ -2,11 +2,9 @@ import React from "react";
 
 export default class Form extends React.Component {
   state = {
-    firstName: "",
-    lastName: "",
-    username: "",
-    email: "",
-    password: ""
+    ccsip: "",
+    deveui: "",
+    bytes: "",
   };
 
   change = e => {
@@ -19,58 +17,52 @@ export default class Form extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     // this.props.onSubmit(this.state);
-    this.setState({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
-    });
-    this.props.onChange({
-      firstName: "",
-      lastName: "",
-      username: "",
-      email: "",
-      password: ""
-    });
+    
+    let deveui = this.state.deveui.split(',').map(Number)
+    let bytes = this.state.bytes.split(',').map(Number)
+
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ccsip: this.state.ccsip, deveui:deveui, bytes:bytes})
+    };
+    fetch('http://127.0.0.1:8000/', requestOptions)
+        .then(response => response.json())
+
+    // this.setState({
+    //   ccsip: "",
+    //   deveui: "",
+    //   bytes: "",
+    // });
+    // this.props.onChange({
+    //   ccsip: "",
+    //   deveui: "",
+    //   bytes: "",
+    // });
+
   };
 
   render() {
     return (
       <form>
         <input
-          name="firstName"
-          placeholder="First name"
-          value={this.state.firstName}
+          name="ccsip"
+          placeholder="ccsip"
+          value={this.state.ccsip}
           onChange={e => this.change(e)}
         />
         <br />
         <input
-          name="lastName"
-          placeholder="Last name"
-          value={this.state.lastName}
+          name="deveui"
+          placeholder="deveui"
+          value={this.state.deveui}
           onChange={e => this.change(e)}
         />
         <br />
         <input
-          name="username"
-          placeholder="Username"
-          value={this.state.username}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="email"
-          placeholder="Email"
-          value={this.state.email}
-          onChange={e => this.change(e)}
-        />
-        <br />
-        <input
-          name="password"
-          type="password"
-          placeholder="Password"
-          value={this.state.password}
+          name="bytes"
+          placeholder="bytes"
+          value={this.state.bytes}
           onChange={e => this.change(e)}
         />
         <br />
