@@ -83,7 +83,7 @@ export default class Form extends React.Component {
             <div className="col-sm-7">
               <input className="form-control"
                 name="deveui"
-                placeholder="0x00, 0x00, 0x00, 0x00"
+                placeholder="0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00"
                 id="inputEmail4"
                 value={this.state.deveui}
                 onChange={e => this.change(e)}
