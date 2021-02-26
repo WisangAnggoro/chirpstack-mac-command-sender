@@ -21,11 +21,14 @@ app.post('/', (req, res) => {
     console.log(deveui)
 
     // --- then catch handler
-    api.sendMacCommand(ccsip, deveui, bytes).then(data=>{
-           res.send({response: 'ok'})
-       }).catch(error=>{
-           res.send({response: 'error'})
-       })
+    api.sendMacCommand(ccsip, deveui, bytes)
+        .then(data=>{
+            console.log("waow",data.desc)
+           res.send({response: 'ok', desc: data})
+        }).catch(error=>{
+            console.log("waow",error.desc)
+            res.send({response: 'error', desc: error.desc})
+        })
 
     // --- asyc await handler
     // try {

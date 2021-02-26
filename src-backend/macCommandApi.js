@@ -31,14 +31,18 @@ module.exports = {
 				if( !err)
 				{
 					console.log( 'createMACCommandQueueItem result : ', res); 
-					// callback(null);
-					resolve(true)
+					resolve({
+						status:true,
+						desc:res
+					})
 				}
 				else
 				{
 					console.log( 'createMACCommandQueueItem ERROR details: ', err.details);
-					// callback(err);
-					reject(false)
+					reject({
+						status:false,
+						desc:err.details
+					})
 				}
 			}); 
 		})
