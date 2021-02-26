@@ -1,7 +1,19 @@
-# basic-react-form
-## The branches of this project are sorted in the order they were coded.
+# Chirpstack MAC Command Sender ✨
 
-[Click me for the YouTube playlist associated with this repo](
-https://www.youtube.com/playlist?list=PLN3n1USn4xllZIJyrGvCu5ihs2GoMtk1Q)
+## Description
+This application used to send MAC Command data to Chirpstack Network Server using gRPC through simple web interface.
 
-run commanad for run application : `npm start` / `yarn start`
+## Starting
+### 1. Preps
+install node or yarn package manager
+### 2. Clone Files
+```git clone https://github.com/WisangAnggoro/chirpstack-mac-command-sender.git```
+### 3. Install Node Modules
+```yarn install```
+### 4. Start the App
+```yarn start```
+
+
+##### Wisang Jati Anggoro
+
+
